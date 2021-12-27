@@ -12,6 +12,7 @@ namespace MRF_Sample_Task.Controllers
         DetailsDb DetailsData = new DetailsDb();
         // GET: Details
         public ActionResult Details()
+            Happy
         {
             return View();
         }
