@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+   
+}
+
+
+
+<div class="col-md-4 col-md-offset-3 col-lg-6 col-xl-5">
+
+    <h3>Sign in</h3>
+    <br />
+    <br />
+    <div>
+        <label class="form-label" for="typeEmail">Email</label>
+        <input type="text" id="Email" class="form-control form-control-lg" />
+
+
+    </div>
+
+    <div>
+        <label class="form-label" for="typePassword">Password</label>
+        <input type="password" id="Password" class="form-control form-control-lg" />
+
+    </div>
+    <br />
+    <br />
+    <button class="btn btn-primary btn-lg " type="button" onclick="Login()" value="login">Login</button>
+</div>
+<script>
+    function Login() {
+        var Email = $('#Email').val();
+        var Password = $('#Password').val();
+        console.log(Email + Password);
+
+        $.ajax({
+            url: "/Sample/Login",
+            data: { Email: Email, Password: Password },
+            type: "GET",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+
+            success: function (result) {
+                if (result == 1) {
+                  //alert("hello")
+                   window.location ="/MRF/Index?Email="+Email;
+                }
+                else{
+                    alert('Login Failed')
+                }
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+
+        });
+    }
+</script>

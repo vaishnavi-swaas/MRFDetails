@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="col-sm-12">
+        <h2>General Information</h2>
+    </div>
+    <div class="col-sm-12">
+
+        <div class="col-sm-6">
+            <div class="col-sm-12">
+                <label for="Id">Position Name</label>
+
+                <input type="text" class="form-control" id="PositionName" style="width:250px" />
+            </div>
+            <div class="col-sm-12">
+                <label for="Date">MRF Created Date</label><br>
+                <input type="date" id="MRF_Created_Date" style="width:250px" value="@ViewBag.Userid">
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+
+            <label for="Id">MRF Created By</label><br>
+            <input type="text" class="form-control" id="MRF_Created_By" value="@ViewBag.Userid" style="width:250px" />
+
+            <div>
+                <label for="Date">Position to be filled before</label><br>
+
+                <input type="date" id="Position_to_be_filled_before" placeholder="Username" style="width:250px">
+            </div>
+
+        </div>
+
+        <div class="col-sm-12" style="border-bottom: 2px solid;">
+            <h2>MRF Details</h2>
+        </div>
+
+        <div class="col-sm-12" style="float:left;width:615px;">
+            <div>
+                <label for="Id">Vacancy For</label><br>
+                <input type="radio" class="row" id="Fielduser" value="1" name="radiovacancy" />
+                <label for="html">Fielduser</label>
+                <input type="radio" class="row" id="Non-Fielduser" value="2" name="radiovacancy" />
+                <label for="html">Non-Fielduser</label>
+            </div>
+
+            <div>
+                <label for="Id">Vacancy Type</label><br>
+                <input type="radio" class="row" id="To Be vacant" value="1" name="vacancy" />
+                <label for="html">To Be vacant</label>
+                <input type="radio" class="row" id="vacant" value="2" name="vacancy" />
+                <label for="html">vacant</label>
+                <input type="radio" class="row" id="Expansion" value="3" name="vacancy" />
+                <label for="html">Expansion</label>
+            </div>
+
+            <br>
+            <div>
+                <label>Territory/HQ</label><br>
+                <input type="text" id="TerritoryHQ" style="width: 250px" />
+            </div>
+            <br>
+            <div>
+                <label>Division Name</label><br>
+                <input type="text" id="DivisionName" style="width: 250px" />
+            </div>
+            <br>
+
+        </div>
+
+        <div class="col-sm-6" style="float:right">
+            <div class="col-sm-12">
+
+                <label>Work Experience</label><br>
+                <label>Min Yrs </label>
+                <input type="text" id="Min_yrs" placeholder="0" style="width: 80px" />
+                <label>Max Yrs </label>
+                <input type="text" id="Max_yrs" placeholder="0" style="width: 80px" />
+            </div>
+
+            <div class="col-sm-12">
+                <label>CTC per Annum(in lakhs)</label><br>
+                <label>Max</label>
+                <input type="text" id="MaxCTC" placeholder="0" style="width: 80px" />
+                <label>Min  </label>
+                <input type="text" id="MinCTC" placeholder="0" style="width: 80px" />
+            </div>
+            <br>
+            <br>
+
+            <br>
+            <div class="col-sm-12">
+                <label>Additional Requirement</label><br>
+                <textarea id="Additional_Requirement" rows="3" cols="50"></textarea>
+            </div>
+
+        </div>
+        <br>
+        <br />
+
+        <div class="col-sm-10 text-center">
+            <input type="button" onclick="Add()" value="Submit MRF" />
+        </div><br />
+
+        <div class="col-sm-10 text-center">
+            <br />
+            <input type="button" onclick="Edit()" value="View MRF Details" />
+        </div>
+    </div>
+    <input type="button" onclick="" value="Edit MRF" />
+    <br />
+
+    <div id="result"></div>
+</body>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/MRF.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+    if (@ViewBag.edit== 1) {
+        var EditID = @ViewBag.id;
+        alert(@ViewBag.id);
+        getbyID(EditID);
+        }
+    });
+</script>
