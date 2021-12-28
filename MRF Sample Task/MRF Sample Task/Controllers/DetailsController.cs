@@ -16,7 +16,7 @@ namespace MRF_Sample_Task.Controllers
         {
             return View();
         }
-        public JsonResult List()
+        public JsonResult List()//...
         {
             return Json(DetailsData.ListAll(), JsonRequestBehavior.AllowGet);
         }
